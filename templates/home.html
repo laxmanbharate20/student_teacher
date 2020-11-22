@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container" >
+    <h1>Student Information</h1><hr>
+    {% if data%}
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+            <th>ID</th><th>Student Name</th><th>Teachers</th><th>Subjects</th>
+            </thead>
+            <tbody>
+                {%for record in data%}
+                <tr>
+                    <td>{{record.id}}</td>
+                    <td>{{record.name}}</td>
+                    <td>{{record.teacher}}</td>
+                    <td>{{record.subject}}</td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+    {%else%}
+        <p>Employee Records Are Not Available</p>
+    {%endif%}
+</div>
+
+</body>
+</html>
